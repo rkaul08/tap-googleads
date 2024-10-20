@@ -17,6 +17,7 @@ class TestTapGoogleadsWithProxyOAuthCredentials(unittest.TestCase):
             "oauth_credentials": {
                 "refresh_proxy_url": "http://localhost:8080/api/tokens/oauth2-google/token",
                 "refresh_proxy_url_auth": "Bearer proxy_url_token",
+                "refresh_token": "1234",
             },
             "customer_id": "1234",
             "developer_token": "1234",

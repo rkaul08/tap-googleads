@@ -40,6 +40,13 @@ class TapGoogleAds(Tap):
 
     name = "tap-googleads"
 
+    _refresh_token = th.Property(
+        "refresh_token",
+        th.StringType,
+        required=True,
+        secret=True,
+    )
+
     # TODO: Add Descriptions
     config_jsonschema = th.PropertiesList(
         th.Property(
@@ -57,12 +64,7 @@ class TapGoogleAds(Tap):
                         required=True,
                         secret=True,
                     ),
-                    th.Property(
-                        "refresh_token",
-                        th.StringType,
-                        required=True,
-                        secret=True,
-                    ),
+                    _refresh_token,
                     additional_properties=False,
                 ),
                 th.ObjectType(
@@ -76,6 +78,7 @@ class TapGoogleAds(Tap):
                         th.StringType,
                         secret=True,
                     ),
+                    _refresh_token,
                     additional_properties=False,
                 ),
             ),
