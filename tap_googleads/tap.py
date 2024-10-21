@@ -79,7 +79,6 @@ class TapGoogleAds(Tap):
                         secret=True,
                     ),
                     _refresh_token,
-                    additional_properties=False,
                 ),
             ),
             required=True,
