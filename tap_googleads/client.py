@@ -13,7 +13,7 @@ from tap_googleads.auth import GoogleAdsAuthenticator, ProxyGoogleAdsAuthenticat
 class GoogleAdsStream(RESTStream):
     """GoogleAds stream class."""
 
-    url_base = "https://googleads.googleapis.com/v16"
+    url_base = "https://googleads.googleapis.com/v18"
     rest_method = "POST"
     records_jsonpath = "$[*]"  # Or override `parse_response`.
     next_page_token_jsonpath = "$.nextPageToken"  # Or override `get_next_page_token`.
@@ -96,7 +96,7 @@ class GoogleAdsStream(RESTStream):
     @property
     def path(self) -> str:
         # Paramas
-        path = "/customers/{customer_id}/googleAds:search?pageSize=10000&query="
+        path = "/customers/{customer_id}/googleAds:search?query="
         return path + self.gaql
 
     @cached_property
