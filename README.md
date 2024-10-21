@@ -29,18 +29,21 @@ pip install https://github.com/Matatika/tap-googleads.git
 
 ### Using Your Own Credentials
 
-Settings required to run this tap.
+Required settings:
 
-- `oauth_credentials.client_id` (required)
-- `oauth_credentials.client_secret` (required)
-- `oauth_credentials.refresh_token` (required)
-- `developer_token` (required)
-- `customer_ids` (optional) Array of ids: ["123", "456", "789"]
-- `customer_id` (optional)
-- `login_customer_id` (optional)
-- `start_date` (optional)
-- `end_date` (optional)
-- `enable_click_view_report_stream` (optional) Boolean, Default is `False`
+- `oauth_credentials.client_id`
+- `oauth_credentials.client_secret`
+- `oauth_credentials.refresh_token`
+- `developer_token`
+
+Optional settings:
+
+- `customer_ids`
+- `customer_id`
+- `login_customer_id`
+- `start_date` (default: 90 days before the current date)
+- `end_date` (default: the current date)
+- `enable_click_view_report_stream` (default: `false`)
 
 If using a manager account, `login_customer_id` should be set to the customer ID of the manager account.
  

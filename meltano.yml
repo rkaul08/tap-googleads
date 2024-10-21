@@ -14,57 +14,32 @@ plugins:
     - catalog
     - discover
     settings:
+    - name: oauth_credentials.refresh_token
+      kind: password
+      sensitive: true
+    - name: oauth_credentials.client_id
+    - name: oauth_credentials.client_secret
+      kind: password
+      sensitive: true
+    - name: oauth_credentials.refresh_proxy_url
+      kind: hidden
+      hidden: true
+    - name: oauth_credentials.refresh_proxy_url_auth
+      kind: hidden
+      hidden: true
     - name: developer_token
       kind: password
+      sensitive: true
+    - name: login_customer_id
     - name: customer_id
-      kind: password
+    - name: customer_ids
+      kind: array
     - name: start_date
       kind: date_iso8601
     - name: end_date
       kind: date_iso8601
-    - name: oauth_credentials.client_id
-      env_aliases:
-      - OAUTH_REFRESH_CLIENT_ID
-      kind: hidden
-      label: Optional - OAuth Client ID for use with a proxy refresh server
-      required: false
-    - name: oauth_credentials.client_secret
-      env_aliases:
-      - OAUTH_REFRESH_CLIENT_SECRET
-      kind: hidden
-      label: Optional - OAuth Client Secret for use with a proxy refresh server
-      required: false
-    - name: oauth_credentials.authorization_url
-      kind: hidden
-      label: Optional - OAuth Authorization URL for use with a proxy refresh server
-      required: false
-    - name: oauth_credentials.scope
-      kind: hidden
-      label: Optional - OAuth Scope for use with a proxy refresh server
-      required: false
-    - name: oauth_credentials.access_token
-      env_aliases:
-      - OAUTH_CREDENTIALS_ACCESS_TOKEN
-      kind: hidden
-      label: Optional - OAuth Access Token for use with a proxy refresh server
-    - name: oauth_credentials.refresh_token
-      env_aliases:
-      - OAUTH_CREDENTIALS_REFRESH_TOKEN
-      kind: hidden
-      label: Optional - OAuth Refresh Token for use with a proxy refresh server
-      required: false
-    - name: oauth_credentials.refresh_proxy_url
-      env_aliases:
-      - OAUTH_CREDENTIALS_REFRESH_PROXY_URL
-      kind: hidden
-      label: Optional - OAuth Refresh Proxy URL is the URL for your proxy refresh server
-      required: false
-    - name: oauth_credentials.refresh_proxy_url_auth
-      env_aliases:
-      - OAUTH_CREDENTIALS_REFRESH_PROXY_URL_AUTH
-      kind: hidden
-      label: Optional - OAuth Refresh Proxy URL Auth is the authentication your proxy refresh server
-      required: false
+    - name: enable_click_view_report_stream
+      kind: boolean
   loaders:
   - name: target-jsonl
     variant: andyh1203
