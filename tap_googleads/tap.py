@@ -47,7 +47,7 @@ class TapGoogleAds(Tap):
         required=True,
         secret=True,
     )
-    _end_date = datetime.now(timezone.utc).date()
+    _end_date = datetime.now(timezone.utc).date() - timedelta(days=1)
     _start_date = _end_date - timedelta(days=4)
 
     # TODO: Add Descriptions
