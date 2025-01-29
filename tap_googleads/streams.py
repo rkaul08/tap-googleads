@@ -22,7 +22,7 @@ class AccessibleCustomers(GoogleAdsStream):
 
     rest_method = "GET"
     path = "/customers:listAccessibleCustomers"
-    name = "stream_accessible_customers"
+    name = "ga_accessible_customers"
     primary_keys = ["resourceNames"]
     replication_key = None
     schema = th.PropertiesList(
@@ -77,7 +77,7 @@ class CustomerHierarchyStream(GoogleAdsStream):
 	"""
 
     records_jsonpath = "$.results[*]"
-    name = "stream_customer_hierarchy"
+    name = "ga_customer_hierarchy"
     primary_keys = ["customerClient__id"]
     replication_key = None
     parent_stream_type = AccessibleCustomers
@@ -153,7 +153,7 @@ class GeotargetsStream(ReportsStream):
     FROM geo_target_constant
     """
     records_jsonpath = "$.results[*]"
-    name = "stream_geo_target_constant"
+    name = "ga_geo_target_constant"
     primary_keys = ["geoTargetConstant__id"]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "geo_target_constant.json"
@@ -201,7 +201,7 @@ class ClickViewReportStream(ReportsStream):
         """
 
     records_jsonpath = "$.results[*]"
-    name = "stream_click_view_report"
+    name = "ga_click_view_report"
     primary_keys = [
         "clickView__gclid",
         "clickView__keyword",
@@ -281,7 +281,7 @@ class CampaignsStream(ReportsStream):
         """
 
     records_jsonpath = "$.results[*]"
-    name = "stream_campaign"
+    name = "ga_campaign"
     primary_keys = ["campaign__id"]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "campaign.json"
@@ -323,7 +323,7 @@ class AdGroupsStream(ReportsStream):
        """
 
     records_jsonpath = "$.results[*]"
-    name = "stream_adgroups"
+    name = "ga_adgroups"
     primary_keys = ["adGroup__id", "adGroup__campaign", "adGroup__status"]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "ad_group.json"
@@ -342,7 +342,7 @@ class AdGroupsPerformance(ReportsStream):
         """
 
     records_jsonpath = "$.results[*]"
-    name = "stream_adgroupsperformance"
+    name = "ga_adgroupsperformance"
     primary_keys = ["campaign__id", "adGroup__id"]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "adgroups_performance.json"
@@ -358,7 +358,7 @@ class CampaignPerformance(ReportsStream):
     """
 
     records_jsonpath = "$.results[*]"
-    name = "stream_campaign_performance"
+    name = "ga_campaign_performance"
     primary_keys = [
         "campaign__name",
         "campaign__status",
@@ -390,7 +390,7 @@ class CampaignPerformanceByAgeRangeAndDevice(ReportsStream):
     """
 
     records_jsonpath = "$.results[*]"
-    name = "stream_campaign_performance_by_age_range_and_device"
+    name = "ga_campaign_performance_by_age_range_and_device"
     primary_keys = [
         "adGroupCriterion__ageRange__type",
         "campaign__name",
@@ -421,7 +421,7 @@ class CampaignPerformanceByGenderAndDevice(ReportsStream):
     """
 
     records_jsonpath = "$.results[*]"
-    name = "stream_campaign_performance_by_gender_and_device"
+    name = "ga_campaign_performance_by_gender_and_device"
     primary_keys = [
         "adGroupCriterion__gender__type",
         "campaign__name",
@@ -454,7 +454,7 @@ class CampaignPerformanceByLocation(ReportsStream):
     """
 
     records_jsonpath = "$.results[*]"
-    name = "stream_campaign_performance_by_location"
+    name = "ga_campaign_performance_by_location"
     primary_keys = [
         "campaignCriterion__location__geoTargetConstant",
         "campaign__name",
@@ -494,7 +494,7 @@ class GeoPerformance(ReportsStream):
     """
 
     records_jsonpath = "$.results[*]"
-    name = "stream_geo_performance"
+    name = "ga_geo_performance"
     primary_keys = [
         "geographicView__countryCriterionId",
         "customer_id",
