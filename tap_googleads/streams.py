@@ -23,7 +23,7 @@ class AccessibleCustomers(GoogleAdsStream):
     rest_method = "GET"
     path = "/customers:listAccessibleCustomers"
     name = "stream_accessible_customers"
-    primary_keys = ["resource_names"]
+    primary_keys = ["resourceNames"]
     replication_key = None
     schema = th.PropertiesList(
         th.Property("resourceNames", th.ArrayType(th.StringType)),
@@ -154,7 +154,7 @@ class GeotargetsStream(ReportsStream):
     """
     records_jsonpath = "$.results[*]"
     name = "stream_geo_target_constant"
-    primary_keys = ["geo_target_constant__id"]
+    primary_keys = ["geoTargetConstant__id"]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "geo_target_constant.json"
 
@@ -324,7 +324,7 @@ class AdGroupsStream(ReportsStream):
 
     records_jsonpath = "$.results[*]"
     name = "stream_adgroups"
-    primary_keys = ["ad_group__id", "ad_group__campaign", "ad_group__status"]
+    primary_keys = ["adGroup__id", "adGroup__campaign", "adGroup__status"]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "ad_group.json"
 
@@ -343,7 +343,7 @@ class AdGroupsPerformance(ReportsStream):
 
     records_jsonpath = "$.results[*]"
     name = "stream_adgroupsperformance"
-    primary_keys = ["campaign__id", "ad_group__id"]
+    primary_keys = ["campaign__id", "adGroup__id"]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "adgroups_performance.json"
 
@@ -368,6 +368,17 @@ class CampaignPerformance(ReportsStream):
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "campaign_performance.json"
 
+    def post_process(self, row: dict, context: dict | None = None) -> dict | None:
+        """Convert only the decimal metrics to strings."""
+        if row and 'metrics' in row:
+            # Convert only the decimal fields to strings
+            if 'ctr' in row['metrics']:
+                row['metrics']['ctr'] = str(row['metrics']['ctr'])
+            if 'averageCpc' in row['metrics']:
+                row['metrics']['averageCpc'] = str(row['metrics']['averageCpc'])
+        
+        return row    
+
 
 class CampaignPerformanceByAgeRangeAndDevice(ReportsStream):
     """Campaign Performance By Age Range and Device"""
@@ -381,7 +392,7 @@ class CampaignPerformanceByAgeRangeAndDevice(ReportsStream):
     records_jsonpath = "$.results[*]"
     name = "stream_campaign_performance_by_age_range_and_device"
     primary_keys = [
-        "ad_group_criterion__age_range__type",
+        "adGroupCriterion__ageRange__type",
         "campaign__name",
         "segments__date",
         "campaign__status",
@@ -390,7 +401,16 @@ class CampaignPerformanceByAgeRangeAndDevice(ReportsStream):
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "campaign_performance_by_age_range_and_device.json"
 
+    def post_process(self, row: dict, context: dict | None = None) -> dict | None:
+        """Convert only the decimal metrics to strings."""
+        if row and 'metrics' in row:
+            # Convert only the decimal fields to strings
+            if 'ctr' in row['metrics']:
+                row['metrics']['ctr'] = str(row['metrics']['ctr'])
+            if 'averageCpc' in row['metrics']:
+                row['metrics']['averageCpc'] = str(row['metrics']['averageCpc'])
 
+        return row
 class CampaignPerformanceByGenderAndDevice(ReportsStream):
     """Campaign Performance By Age Range and Device"""
 
@@ -403,7 +423,7 @@ class CampaignPerformanceByGenderAndDevice(ReportsStream):
     records_jsonpath = "$.results[*]"
     name = "stream_campaign_performance_by_gender_and_device"
     primary_keys = [
-        "ad_group_criterion__gender__type",
+        "adGroupCriterion__gender__type",
         "campaign__name",
         "segments__date",
         "campaign__status",
@@ -411,6 +431,17 @@ class CampaignPerformanceByGenderAndDevice(ReportsStream):
     ]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "campaign_performance_by_gender_and_device.json"
+
+    def post_process(self, row: dict, context: dict | None = None) -> dict | None:
+        """Convert only the decimal metrics to strings."""
+        if row and 'metrics' in row:
+            # Convert only the decimal fields to strings
+            if 'ctr' in row['metrics']:
+                row['metrics']['ctr'] = str(row['metrics']['ctr'])
+            if 'averageCpc' in row['metrics']:
+                row['metrics']['averageCpc'] = str(row['metrics']['averageCpc'])
+
+        return row
 
 
 class CampaignPerformanceByLocation(ReportsStream):
@@ -425,12 +456,21 @@ class CampaignPerformanceByLocation(ReportsStream):
     records_jsonpath = "$.results[*]"
     name = "stream_campaign_performance_by_location"
     primary_keys = [
-        "campaign_criterion__location__geo_target_constant",
+        "campaignCriterion__location__geoTargetConstant",
         "campaign__name",
         "segments__date",
     ]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "campaign_performance_by_location.json"
+
+    def post_process(self, row: dict, context: dict | None = None) -> dict | None:
+        """Convert only the decimal metrics to strings."""
+        if row and 'metrics' in row:
+            # Convert only the decimal fields to strings
+            if 'ctr' in row['metrics']:
+                row['metrics']['ctr'] = str(row['metrics']['ctr'])
+            if 'averageCpc' in row['metrics']:
+                row['metrics']['averageCpc'] = str(row['metrics']['averageCpc'])
 
 
 class GeoPerformance(ReportsStream):
@@ -456,10 +496,17 @@ class GeoPerformance(ReportsStream):
     records_jsonpath = "$.results[*]"
     name = "stream_geo_performance"
     primary_keys = [
-        "geographic_view__country_criterion_id",
+        "geographicView__countryCriterionId",
         "customer_id",
         "campaign__name",
         "segments__date",
     ]
     replication_key = None
     schema_filepath = SCHEMAS_DIR / "geo_performance.json"
+
+    def post_process(self, row: dict, context: dict | None = None) -> dict | None:
+        """Convert only the decimal metrics to strings."""
+        if row and 'metrics' in row:
+            # Convert only the decimal fields to strings
+            if 'conversions' in row['metrics']:
+                row['metrics']['conversions'] = str(row['metrics']['conversions'])
