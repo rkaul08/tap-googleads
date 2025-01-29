@@ -31,7 +31,7 @@
           "type": "string"
         },
         "conversions": {
-          "type": "number"
+          "type": "string"
         }
       }
     },
