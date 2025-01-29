@@ -42,10 +42,10 @@
                                 "type": "string"
                             },
                             "ctr": {
-                                "type": "number"
+                                "type": "string"
                             },
                             "averageCpc": {
-                                "type": "number"
+                                "type": "string"
                             },
                             "impressions": {
                                 "type": "string"
