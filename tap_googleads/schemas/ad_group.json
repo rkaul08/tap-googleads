@@ -5,15 +5,15 @@
             "type": "object",
             "properties": {
                 "resourceName": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "status": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "type": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
-                "targetingSetting": {
+		"targetingSetting": {
                     "type": "object",
                     "properties": {
                         "targetRestrictions": {
@@ -33,37 +33,70 @@
                     }
                 },
                 "id": {
-                    "type": "string"
-                },
-                "customer_id": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "name": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "baseAdGroup": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "campaign": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "cpcBidMicros": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "cpmBidMicros": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "targetCpaMicros": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "cpvBidMicros": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "targetCpmMicros": {
-                    "type": "string"
+                    "type": ["null", "string"]
                 },
                 "effectiveTargetCpaMicros": {
-                    "type": "string"
+                    "type": ["null", "string"]
+                },
+                "urlCustomParameters": {
+                    "type": ["null", "string"]
+                },
+                "trackingUrlTemplate": {
+                    "type": ["null", "string"]
+                },
+                "targetRoas": {
+                    "type": ["null", "string"]
+                },
+                "percentCpcBidMicros": {
+                    "type": ["null", "string"]
+                },
+                "labels": {
+                    "type": ["null", "string"]
+                },
+                "finalUrlSuffix": {
+                    "type": ["null", "string"]
+                },
+                "excludedParentAssetFieldTypes": {
+                    "type": ["null", "string"]
+                },
+                "effectiveTargetRoasSource": {
+                    "type": ["null", "string"]
+                },
+                "effectiveTargetRoas": {
+                    "type": ["null", "string"]
+                },
+                "effectiveTargetCpaSource": {
+                    "type": ["null", "string"]
+                },
+                "displayCustomBidDimension": {
+                    "type": ["null", "string"]
+                },
+                "adRotationMode": {
+                    "type": ["null", "string"]
                 }
             }
         }
