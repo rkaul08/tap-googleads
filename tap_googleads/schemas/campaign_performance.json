@@ -36,6 +36,9 @@
                             "averageCpc": {
                                 "type": "string"
                             },
+                            "interactions": {
+                                "type": "string"
+                            },
                             "impressions": {
                                 "type": "string"
                             }
