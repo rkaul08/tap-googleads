@@ -48,7 +48,8 @@ class TapGoogleAds(Tap):
         secret=True,
     )
     _end_date = datetime.now(timezone.utc).date() - timedelta(days=1)
-    _start_date = _end_date - timedelta(days=35)
+    # _start_date = _end_date - timedelta(days=35)
+    _start_date = datetime(2025,1,1).date()
 
     # TODO: Add Descriptions
     config_jsonschema = th.PropertiesList(
