@@ -39,6 +39,14 @@
                     "type": "string"
                 }
             }
-        }
+        },
+	"segments": {
+                        "type": "object",
+                        "properties": {
+                            "date": {
+                                "type": "string"
+                            }
+                        }
+              }
     }
 }
