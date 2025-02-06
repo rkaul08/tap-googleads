@@ -8,31 +8,31 @@ from singer_sdk import typing as th  # JSON schema typing helpers
 
 from tap_googleads.streams import (
     AccessibleCustomers,
-    AdGroupsPerformance,
-    AdGroupsStream,
+    #AdGroupsPerformance,
+    #AdGroupsStream,
     CampaignPerformance,
-    CampaignPerformanceByAgeRangeAndDevice,
-    CampaignPerformanceByGenderAndDevice,
-    CampaignPerformanceByLocation,
-    CampaignsStream,
-    ClickViewReportStream,
+    #CampaignPerformanceByAgeRangeAndDevice,
+    #CampaignPerformanceByGenderAndDevice,
+    #CampaignPerformanceByLocation,
+    #CampaignsStream,
+    #ClickViewReportStream,
     CustomerHierarchyStream,
-    GeoPerformance,
-    GeotargetsStream,
+    #GeoPerformance,
+    #GeotargetsStream,
 )
 
 STREAM_TYPES = [
-    CampaignsStream,
-    AdGroupsStream,
-    AdGroupsPerformance,
+    #CampaignsStream,
+    #AdGroupsStream,
+    #AdGroupsPerformance,
     AccessibleCustomers,
     CustomerHierarchyStream,
     CampaignPerformance,
-    CampaignPerformanceByAgeRangeAndDevice,
-    CampaignPerformanceByGenderAndDevice,
-    CampaignPerformanceByLocation,
-    GeotargetsStream,
-    GeoPerformance,
+    #CampaignPerformanceByAgeRangeAndDevice,
+    #CampaignPerformanceByGenderAndDevice,
+    #CampaignPerformanceByLocation,
+    #GeotargetsStream,
+    #GeoPerformance,
 ]
 
 
@@ -48,7 +48,7 @@ class TapGoogleAds(Tap):
         secret=True,
     )
     _end_date = datetime.now(timezone.utc).date() - timedelta(days=1)
-    _start_date = _end_date - timedelta(days=4)
+    _start_date = _end_date - timedelta(days=35)
 
     # TODO: Add Descriptions
     config_jsonschema = th.PropertiesList(
