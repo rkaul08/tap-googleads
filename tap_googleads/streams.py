@@ -451,7 +451,7 @@ class CampaignPerformanceByLocation(ReportsStream):
     @property
     def gaql(self):
         return f"""
-    SELECT campaign_criterion.location.geo_target_constant, campaign.name, campaign_criterion.bid_modifier, segments.date, metrics.clicks, metrics.impressions, metrics.ctr, metrics.average_cpc, metrics.cost_micros FROM location_view WHERE segments.date >= '2021-01-01' and segments.date <= {self.end_date}
+    SELECT campaign_criterion.location.geo_target_constant, campaign.name, campaign_criterion.bid_modifier, segments.date, metrics.clicks, metrics.impressions, metrics.ctr, metrics.average_cpc, metrics.cost_micros FROM location_view WHERE segments.date >= '2024-12-01' and segments.date <= '2024-12-31'
     """
 
     records_jsonpath = "$.results[*]"
