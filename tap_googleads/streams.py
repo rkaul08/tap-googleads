@@ -63,7 +63,7 @@ class CustomerHierarchyStream(GoogleAdsStream):
     @property
     def gaql(self):
         return """
-	SELECT
+    SELECT
           customer_client.client_customer,
           customer_client.level,
           customer_client.status,
@@ -74,7 +74,7 @@ class CustomerHierarchyStream(GoogleAdsStream):
           customer_client.id
         FROM customer_client
         WHERE customer_client.level <= 1
-	"""
+    """
 
     records_jsonpath = "$.results[*]"
     name = "ga_customer_hierarchy"
@@ -337,7 +337,7 @@ class AdGroupsPerformance(ReportsStream):
         return f"""
         SELECT campaign.id, ad_group.id, metrics.impressions, metrics.clicks,
                metrics.cost_micros,
-	       segments.date
+               segments.date
                FROM ad_group
                WHERE segments.date >= {self.start_date} and segments.date <= {self.end_date}
         """
@@ -452,7 +452,7 @@ class CampaignPerformanceByLocation(ReportsStream):
     def gaql(self):
         return f"""
     SELECT campaign_criterion.location.geo_target_constant, campaign.name, campaign_criterion.bid_modifier, segments.date, metrics.clicks, metrics.impressions, metrics.ctr, metrics.average_cpc, metrics.cost_micros FROM location_view WHERE segments.date >= {self.start_date} and segments.date <= {self.end_date} AND campaign_criterion.status != 'REMOVED'
-	"""
+    """
 
 
     records_jsonpath = "$.results[*]"
@@ -474,7 +474,7 @@ class CampaignPerformanceByLocation(ReportsStream):
             if 'averageCpc' in row['metrics']:
                 row['metrics']['averageCpc'] = str(row['metrics']['averageCpc'])
 
-	    return row
+        return row
 
 
 class GeoPerformance(ReportsStream):
