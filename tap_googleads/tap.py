@@ -8,30 +8,30 @@ from singer_sdk import typing as th  # JSON schema typing helpers
 
 from tap_googleads.streams import (
     AccessibleCustomers,
-    #AdGroupsPerformance,
-    #AdGroupsStream,
+    AdGroupsPerformance,
+    AdGroupsStream,
     CampaignPerformance,
-    #CampaignPerformanceByAgeRangeAndDevice,
-    #CampaignPerformanceByGenderAndDevice,
+    CampaignPerformanceByAgeRangeAndDevice,
+    CampaignPerformanceByGenderAndDevice,
     CampaignPerformanceByLocation,
-    #CampaignsStream,
-    #ClickViewReportStream,
+    CampaignsStream,
+    ClickViewReportStream,
     CustomerHierarchyStream,
     GeoPerformance,
-    #GeotargetsStream,
+    GeotargetsStream,
 )
 
 STREAM_TYPES = [
-    #CampaignsStream,
-    #AdGroupsStream,
-    #AdGroupsPerformance,
+    CampaignsStream,
+    AdGroupsStream,
+    AdGroupsPerformance,
     AccessibleCustomers,
     CustomerHierarchyStream,
     CampaignPerformance,
-    #CampaignPerformanceByAgeRangeAndDevice,
-    #CampaignPerformanceByGenderAndDevice,
+    CampaignPerformanceByAgeRangeAndDevice,
+    CampaignPerformanceByGenderAndDevice,
     CampaignPerformanceByLocation,
-    #GeotargetsStream,
+    GeotargetsStream,
     GeoPerformance,
 ]
 
