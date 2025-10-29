@@ -474,7 +474,7 @@ class CampaignPerformanceByLocation(ReportsStream):
             if 'averageCpc' in row['metrics']:
                 row['metrics']['averageCpc'] = str(row['metrics']['averageCpc'])
 
-		return row
+	    return row
 
 
 class GeoPerformance(ReportsStream):
