@@ -7,7 +7,7 @@ from singer_sdk import Stream, Tap
 from singer_sdk import typing as th  # JSON schema typing helpers
 
 from tap_googleads.streams import (
-    # AccessibleCustomers,
+    AccessibleCustomers,
     # AdGroupsPerformance,
     # AdGroupsStream,
     # CampaignPerformance,
@@ -25,7 +25,7 @@ STREAM_TYPES = [
     # CampaignsStream,
     # AdGroupsStream,
     # AdGroupsPerformance,
-    # AccessibleCustomers,
+    AccessibleCustomers,
     CustomerHierarchyStream,
     # CampaignPerformance,
     # CampaignPerformanceByAgeRangeAndDevice,
