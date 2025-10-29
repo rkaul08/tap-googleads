@@ -452,6 +452,7 @@ class CampaignPerformanceByLocation(ReportsStream):
     def gaql(self):
         return f"""
     SELECT campaign_criterion.location.geo_target_constant, campaign.name, campaign_criterion.bid_modifier, segments.date, metrics.clicks, metrics.impressions, metrics.ctr, metrics.average_cpc, metrics.cost_micros FROM location_view WHERE segments.date >= {self.start_date} and segments.date <= {self.end_date} AND campaign_criterion.status != 'REMOVED'
+	"""
 
 
     records_jsonpath = "$.results[*]"
