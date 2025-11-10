@@ -440,7 +440,9 @@ class CampaignPerformanceByGenderAndDevice(ReportsStream):
             if 'ctr' in row['metrics']:
                 row['metrics']['ctr'] = str(row['metrics']['ctr'])
             if 'averageCpc' in row['metrics']:
-                row['metrics']['averageCpc'] = str(row['metrics']['averageCpc'])
+                row['metrics']['averageCpc'] = str(row['metrics']['averageCpc']) if row['metrics']['averageCpc'] is not None else ''
+            else:
+                row['metrics']['averageCpc']=''
 
         return row
 
@@ -472,7 +474,9 @@ class CampaignPerformanceByLocation(ReportsStream):
             if 'ctr' in row['metrics']:
                 row['metrics']['ctr'] = str(row['metrics']['ctr'])
             if 'averageCpc' in row['metrics']:
-                row['metrics']['averageCpc'] = str(row['metrics']['averageCpc'])
+                row['metrics']['averageCpc'] = str(row['metrics']['averageCpc']) if row['metrics']['averageCpc'] is not None else ''
+            else:
+                row['metrics']['averageCpc']=''
 
         return row
 
